@@ -4,13 +4,11 @@ on:
       types:
         - opened
         - edited
-      branches:
-        - master
+      branches-ignore:
+      - feature/*
   push:
     branches:
       - master
-    branches-ignore:
-      - feature/*
     paths:
       - .github/workflows/*
   workflow_dispatch:
