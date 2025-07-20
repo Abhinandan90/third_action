@@ -1,20 +1,19 @@
 name: My-tes-workflow
 on: 
-  - pull request:
+  pull_request:
       types:
         - opened
         - edited
       branches:
         - master
-  - push:
-      - branches:
-          - master
-  - workflow_dispatch:
-  - branches-ignore:
-      - feature-**
-  - paths:
+  push:
+    branches:
+      - master
+    branches-ignore:
+      - feature/*
+    paths:
       - .github/workflows/*
-
+  workflow_dispatch:
 
 jobs:
   my-test-new-job:
