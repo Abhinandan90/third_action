@@ -1,0 +1,30 @@
+name: My-tes-workflow
+on: 
+  - pull request:
+      types:
+        - opened
+        - edited
+      branches:
+        - master
+  - push:
+      - branches:
+          - master
+  - workflow_dispatch:
+  - branches-ignore:
+      - feature-**
+  - paths:
+      - .github/workflows/*
+
+
+jobs:
+  my-test-new-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v4
+      - name: Install packages
+        run: npm ci
+      - name: Signal Completion
+        run: |
+          echo "This workflow completed"
+          echo "Bye Bye"
